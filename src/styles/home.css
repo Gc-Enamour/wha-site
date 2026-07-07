@@ -334,10 +334,7 @@
   .offer-card { max-width: 420px; margin: 0 auto; width: 100%; }
   .tst-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: repeat(2,1fr); }
-  .maestro-band { grid-template-columns: 1fr; gap: 24px; text-align: center; }
-  .maestro-head { justify-content: center; }
-  .maestro-cta  { justify-content: center; }
-  .maestro-body p { margin-left: auto; margin-right: auto; }
+  .maestro-band { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 600px) {
   .hero-in { padding: 90px 20px 96px; }
