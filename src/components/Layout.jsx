@@ -143,7 +143,7 @@ function Footer() {
             <ul>
               <li><Link to="/etica">Código de Ética</Link></li>
               <li><a href="https://directorio.worldholisticalliance.org/">Buscar perfiles</a></li>
-              <li><a href="https://directorio.worldholisticalliance.org/">Cómo leer los perfiles</a></li>
+              <li><a href="https://directorio.worldholisticalliance.org/#como-leer">Cómo leer los perfiles</a></li>
               <li><a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer">Quiero mi aval WHA</a></li>
             </ul>
           </div>
@@ -153,7 +153,7 @@ function Footer() {
               <li><a href="https://worldholisticalliance.org/" target="_blank" rel="noopener noreferrer">Quiénes somos</a></li>
               <li><a href="https://formaciones.worldholisticalliance.org" target="_blank" rel="noopener noreferrer">Formaciones</a></li>
               <li><a href="https://worldholisticalliance.org/blog-2" target="_blank" rel="noopener noreferrer">Blog</a></li>
-              <li><a href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer">Acceso formadores</a></li>
+              <li><a href="https://directorio.worldholisticalliance.org/acceso" target="_blank" rel="noopener noreferrer">Acceso formadores</a></li>
               <li><a href="https://wa.me/5491124014443?text=Hola!%20Necesito%20entrar%20en%20contacto." target="_blank" rel="noopener noreferrer">Contacto WhatsApp</a></li>
             </ul>
           </div>
