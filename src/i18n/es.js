@@ -63,7 +63,6 @@ const es = {
 
   "t200.eyebrow":     "Certificación T200",
   "t200.title":       "Conviértete en Terapeuta Integral WHA",
-  "t200.lead":        "Un programa de 12 meses con 12 formaciones completas que te forma, te certifica y te posiciona como terapeuta integral. Al finalizar recibes el certificado oficial <b>Terapeuta Integral WHA – Nivel T200</b>.",
   "t200.cert.label":  "Certificado oficial al finalizar",
   "t200.cert.name":   "Terapeuta Integral WHA",
   "t200.cert.level":  "Nivel T200 · 800 horas validadas",

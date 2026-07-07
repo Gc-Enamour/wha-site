@@ -1,7 +1,4 @@
-/* SVG icon components — todos extraídos de los mockups WHA */
-const d = (path, extra = {}) => ({ viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round", strokeLinejoin: "round", path, ...extra });
-
-function Icon({ size = 24, d: path, viewBox = "0 0 24 24", ...rest }) {
+function Icon({ size = 24, path, viewBox = "0 0 24 24", ...rest }) {
   return (
     <svg width={size} height={size} viewBox={viewBox} fill="none" stroke="currentColor"
       strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...rest}>
