@@ -1,17 +1,38 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useTheme } from '../hooks/useTheme.js';
 import { useLang } from '../context/LangContext.jsx';
 import { UI_LANGS } from '../i18n/index.js';
-import { Lotus, Sun, Moon, Translate, ChevDown, Ig, Fb, Yt } from './icons/index.jsx';
-import '../styles/layout.css';
+import { Sun, Moon, Translate, ChevDown, Users, Pencil, X, List } from './icons/index.jsx';
+import '../styles/dir-layout.css';
 
-function LangSwitcher({ lang, setLang }) {
+/* ---------- Toggle tema claro / oscuro ---------- */
+function ThemeToggle() {
+  const [dark, setDark] = useState(
+    () => document.documentElement.getAttribute('data-theme') === 'dark'
+  );
+  function toggle() {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
+    try { localStorage.setItem('wha-theme', next ? 'dark' : 'light'); } catch (e) {}
+  }
+  return (
+    <button className="theme-btn" onClick={toggle}
+      aria-label={dark ? 'Modo claro' : 'Modo oscuro'}
+      title={dark ? 'Modo claro' : 'Modo oscuro'}>
+      {dark ? <Sun size={17} /> : <Moon size={17} />}
+    </button>
+  );
+}
+
+/* ---------- Selector de idioma ---------- */
+function LangSwitcher() {
+  const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    function onDoc(e) { if (ref.current && !ref.current.contains(e.target)) setOpen(false); }
     document.addEventListener('click', onDoc);
     return () => document.removeEventListener('click', onDoc);
   }, []);
@@ -20,8 +41,8 @@ function LangSwitcher({ lang, setLang }) {
 
   return (
     <div className="lang" ref={ref}>
-      <button className="lang-btn" onClick={() => setOpen(o => !o)} aria-label="Idioma">
-        <Translate size={15} /> {cur.code} <ChevDown size={13} />
+      <button className="lang-btn" onClick={() => setOpen(o => !o)} aria-label="Idioma de interfaz">
+        <Translate size={16} /> <span>{cur.code}</span> <ChevDown size={13} />
       </button>
       {open && (
         <div className="lang-menu">
@@ -31,120 +52,133 @@ function LangSwitcher({ lang, setLang }) {
               <b>{l.code}</b> {l.name}
             </button>
           ))}
+          <div className="lang-note">Detección automática por ubicación · cambio manual disponible</div>
         </div>
       )}
     </div>
   );
 }
 
-function SiteHeader({ dark, toggleTheme }) {
+/* ---------- Header ---------- */
+function Header() {
+  const [open, setOpen] = useState(false);
+  const [accOpen, setAccOpen] = useState(false);
+  const accRef = useRef(null);
   const { pathname } = useLocation();
-  const { lang, setLang, t } = useLang();
+
+  useEffect(() => {
+    function onDoc(e) { if (accRef.current && !accRef.current.contains(e.target)) setAccOpen(false); }
+    document.addEventListener('click', onDoc);
+    return () => document.removeEventListener('click', onDoc);
+  }, []);
 
   return (
     <header className="hdr">
       <div className="hdr-in">
-        <Link to="/" className="brand" aria-label="World Holistic Alliance — inicio">
-          <span className="brand-mark"><Lotus size={38} /></span>
-          <b>World Holistic Alliance</b>
-        </Link>
+        <a className="brand" href="https://worldholisticalliance.com">
+          <img src="/logo.png" alt="Logo WHA" style={{ width: '50px', height: '50px', borderRadius: '12px' }} />
+          <span className="sr">World Holistic Alliance</span>
+        </a>
 
-        <nav className="hdr-nav" aria-label="Navegación principal">
-          <a href="/#formaciones">{t('nav.formaciones')}</a>
-          <a href="/#directorio">{t('nav.directorio')}</a>
-          <a href="/#aval">{t('nav.aval')}</a>
-          <a href="/#t200">{t('nav.t200')}</a>
-          <Link to="/etica" className={pathname === '/etica' ? 'on' : ''}>{t('nav.etica')}</Link>
+        <nav className="nav" aria-label="Navegación principal">
+          <a href="https://directorio.worldholisticalliance.org/">Directorio</a>
+          <a href="https://formaciones.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer">Formaciones</a>
+          <a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer">Sé parte de WHA</a>
+          <Link to="/etica" className={pathname === '/etica' ? 'active' : ''}>Ética</Link>
+          <div className="nav-acc" ref={accRef}>
+            <a className="nav-acc-btn" onClick={() => setAccOpen(o => !o)}>
+              Acceso <ChevDown size={13} />
+            </a>
+            {accOpen && (
+              <div className="acc-menu">
+                <a href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer"
+                  onClick={() => setAccOpen(false)}>
+                  <Users size={15} /> Acceso alumnos
+                </a>
+                <a href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer"
+                  onClick={() => setAccOpen(false)}>
+                  <Pencil size={15} /> Acceso formadores
+                </a>
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="hdr-right">
-          <LangSwitcher lang={lang} setLang={setLang} />
-          <button className="icon-btn" onClick={toggleTheme}
-            aria-label={dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-            title={dark ? 'Modo claro' : 'Modo oscuro'}>
-            {dark ? <Sun size={17} /> : <Moon size={17} />}
+          <ThemeToggle />
+          <LangSwitcher />
+          <button className="burger" aria-label="Menú" onClick={() => setOpen(o => !o)}>
+            {open ? <X size={20} /> : <List size={20} />}
           </button>
         </div>
       </div>
+
+      {open && (
+        <div className="mnav">
+          <a href="https://directorio.worldholisticalliance.org/" onClick={() => setOpen(false)}>Directorio</a>
+          <a href="https://formaciones.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Formaciones</a>
+          <a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Sé parte de WHA</a>
+          <Link to="/etica" onClick={() => setOpen(false)}>Ética</Link>
+          <div className="mnav-group">Acceso</div>
+          <a className="mnav-sub" href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso alumnos</a>
+          <a className="mnav-sub" href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso formadores</a>
+        </div>
+      )}
     </header>
   );
 }
 
-function SiteFooter() {
-  const { t } = useLang();
-
-  const cols = [
-    [t('footer.explore'), [
-      { label: t('footer.link.directorio'),  to: '/#directorio'  },
-      { label: t('footer.link.formaciones'), to: '/#formaciones' },
-      { label: t('footer.link.aval'),        to: '/#aval'        },
-      { label: t('footer.link.t200'),        to: '/#t200'        },
-      { label: t('footer.link.maestro'),     to: '/#maestro'     },
-    ]],
-    [t('footer.about'), [
-      { label: t('footer.link.quienes'), to: '/#quienes' },
-      { label: t('footer.link.etica'),   to: '/etica'    },
-      { label: t('footer.link.blog'),    to: '#'         },
-    ]],
-    [t('footer.legal'), [
-      { label: t('footer.link.terminos'),   to: '/terminos'   },
-      { label: t('footer.link.privacidad'), to: '/privacidad' },
-      { label: t('footer.link.descargo'),   to: '/descargo'   },
-    ]],
-  ];
-
+/* ---------- Footer ---------- */
+function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="footer-in shell">
-        <div className="footer-brand">
-          <Link to="/" className="brand" aria-label="World Holistic Alliance — inicio">
-            <span className="brand-mark"><Lotus size={34} /></span>
-            <b>World Holistic Alliance</b>
-          </Link>
-          <p className="tagline">{t('footer.tagline')}</p>
-          <div className="socials">
-            <a href="#" aria-label="Instagram"><Ig size={18} /></a>
-            <a href="#" aria-label="Facebook"><Fb size={18} /></a>
-            <a href="#" aria-label="YouTube"><Yt size={18} /></a>
+    <footer className="ftr">
+      <div className="ftr-in">
+        <div className="ftr-top">
+          <div className="ftr-brand">
+            <div className="serif">World Holistic Alliance</div>
+            <p>Asociación internacional que agrupa y representa a profesionales del mundo holístico. Cada perfil de este directorio cuenta con aval activo de WHA.</p>
           </div>
-        </div>
-
-        {cols.map(([heading, links]) => (
-          <div key={heading} className="footer-col">
-            <h4>{heading}</h4>
+          <div>
+            <h5>Directorio</h5>
             <ul>
-              {links.map(({ label, to }) => (
-                <li key={label}>
-                  {to.startsWith('/') && !to.includes('#')
-                    ? <Link to={to}>{label}</Link>
-                    : <a href={to}>{label}</a>}
-                </li>
-              ))}
+              <li><Link to="/etica">Código de Ética</Link></li>
+              <li><a href="https://directorio.worldholisticalliance.org/">Buscar perfiles</a></li>
+              <li><a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer">Quiero mi aval WHA</a></li>
             </ul>
           </div>
-        ))}
-      </div>
-
-      <div className="footer-aviso shell">
-        <p className="aviso-label">{t('footer.aviso.title')}</p>
-        <p>{t('footer.aviso.text')}</p>
-      </div>
-
-      <div className="footer-bottom">
-        <div className="shell">© 2026 {t('footer.rights')}</div>
+          <div>
+            <h5>WHA</h5>
+            <ul>
+              <li><a href="https://worldholisticalliance.com/" target="_blank" rel="noopener noreferrer">Quiénes somos</a></li>
+              <li><a href="https://formaciones.worldholisticalliance.org" target="_blank" rel="noopener noreferrer">Formaciones</a></li>
+              <li><a href="https://worldholisticalliance.com/blog/" target="_blank" rel="noopener noreferrer">Blog</a></li>
+              <li><a href="https://wa.me/5491124014443?text=Hola!%20Necesito%20entrar%20en%20contacto." target="_blank" rel="noopener noreferrer">Contacto WhatsApp</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Legal</h5>
+            <ul>
+              <li><Link to="/terminos">Términos y Condiciones</Link></li>
+              <li><Link to="/privacidad">Política de Privacidad</Link></li>
+              <li><Link to="/descargo">Descargo de Responsabilidad</Link></li>
+            </ul>
+          </div>
+        </div>
+        <div className="ftr-bot">
+          <span>Copyright © 2026 World Holistic Alliance.</span>
+          <span>El aval significa que WHA ha revisado la documentación formativa presentada. No garantiza resultados ni supervisa el trabajo profesional.</span>
+        </div>
       </div>
     </footer>
   );
 }
 
 export default function Layout({ children }) {
-  const [dark, toggleTheme] = useTheme();
-
   return (
     <>
-      <SiteHeader dark={dark} toggleTheme={toggleTheme} />
+      <Header />
       <main>{children}</main>
-      <SiteFooter />
+      <Footer />
     </>
   );
 }
