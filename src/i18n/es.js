@@ -21,7 +21,7 @@ const es = {
 
   "paths.aprender.want":  "Quiero aprender terapias holísticas",
   "paths.aprender.title": "Formaciones",
-  "paths.aprender.desc":  "Cursos y formaciones avaladas para iniciarte o especializarte en distintas disciplinas holísticas.",
+  "paths.aprender.desc":  "Cursos y formaciones en video avaladas, para iniciarte o especializarte en distintas disciplinas holísticas.",
   "paths.aprender.cta":   "Ver formaciones",
 
   "paths.validar.want":  "Quiero validar mi práctica como terapeuta",
@@ -86,7 +86,6 @@ const es = {
   "maestro.price.value":    "USD 17,97",
   "maestro.price.per":      "/ mes",
   "maestro.price.note":     "Cancela cuando quieras",
-  "maestro.price.incluye":  "Incluye 30 avales mensuales para certificar a tus alumnos.",
   "maestro.note":           "Estamos sumando las primeras instituciones. Escríbenos para participar de la etapa beta.",
 
   "test.eyebrow": "Testimonios",
@@ -102,10 +101,18 @@ const es = {
   "test.3.r":     "Maestro / Centro · México",
 
   "form.eyebrow":   "Formaciones",
-  "form.title":     "Aprende con formaciones avaladas",
-  "form.lead":      "Una selección de disciplinas holísticas con aval WHA. Explora el catálogo completo para encontrar la tuya.",
+  "form.title":     "Aprende con formaciones en video avaladas",
+  "form.lead":      "Acceso inmediato, a tu ritmo, desde cualquier lugar y con aval WHA. Explora el catálogo completo para encontrar la tuya.",
   "form.cta":       "Ver todas las formaciones",
   "form.duration":  "Formación avalada",
+  "form.items": [
+    { "name": "Maestrías Reiki",       "url": "https://worldholisticalliance.com/packmaestriasreiki/" },
+    { "name": "Movimiento Consciente", "url": "https://worldholisticalliance.com/packterapeutadelmovimiento" },
+    { "name": "Biodescodificación",    "url": "https://worldholisticalliance.com/packbiodescodificacion/" },
+    { "name": "Radiestesia y Péndulo", "url": "https://worldholisticalliance.com/packterapeutaradiestesico/" },
+    { "name": "Numerología Sagrada",   "url": "https://worldholisticalliance.com/packnumerologiadelalma/" },
+    { "name": "Cirugía Astral",        "url": "https://astrocurso.com/cirugiaastral/" },
+  ],
 
   "footer.tagline":          "Asociación internacional de profesionales del mundo holístico.",
   "footer.explore":          "Explorar",

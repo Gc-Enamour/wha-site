@@ -30,7 +30,7 @@ function Hero({ t }) {
           <p className="lead">{t('hero.lead')}</p>
           <div className="ctas">
             <a href="#directorio" className="btn btn-on-hero"><Search size={17} /> {t('hero.cta.primary')}</a>
-            <a href="#aval" className="btn btn-hero-ghost"><Shield size={17} /> {t('hero.cta.secondary')}</a>
+            <a href="#aval" className="btn btn-hero-aval"><Shield size={17} /> {t('hero.cta.secondary')}</a>
           </div>
           <div className="microtrust"><Shield size={18} /> {t('hero.trust')}</div>
         </div>
@@ -232,10 +232,6 @@ function Maestro({ t }) {
               <div className="price"><b>{t('maestro.price.value')}</b><span>{t('maestro.price.per')}</span></div>
               <div className="price-note">{t('maestro.price.note')}</div>
               <button className="btn btn-primary full"><Cert size={17} /> {t('maestro.cta')}</button>
-              <div className="maestro-incluye">
-                <Shield size={14} />
-                <span>{t('maestro.price.incluye')}</span>
-              </div>
             </aside>
           </div>
         </div>
@@ -278,12 +274,8 @@ function Testimonials({ t }) {
 }
 
 /* ── Formaciones ───────────────────────────────────────── */
-const FORMACIONES = [
-  'Reiki Usui', 'Registros Akáshicos', 'Biodescodificación',
-  'Sonoterapia', 'ThetaHealing', 'Cristaloterapia',
-];
-
 function Formaciones({ t }) {
+  const items = t('form.items');
   return (
     <section className="home-section" id="formaciones-catalogo">
       <div className="shell">
@@ -293,14 +285,14 @@ function Formaciones({ t }) {
           <p>{t('form.lead')}</p>
         </div>
         <div className="form-grid">
-          {FORMACIONES.map((name, i) => (
-            <article key={i} className="form-card">
+          {items.map(({ name, url }, i) => (
+            <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="form-card">
               <div className="form-thumb">Imagen</div>
               <div className="form-info">
                 <h3>{name}</h3>
                 <span className="form-dur"><Shield size={12} /> {t('form.duration')}</span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
         <div className="sec-cta">

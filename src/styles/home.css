@@ -61,6 +61,12 @@
   backdrop-filter: blur(4px);
 }
 .btn-hero-ghost:hover { background: rgba(255,255,255,.2); color: #fff; }
+.btn-hero-aval {
+  background: var(--aval-bg);
+  color: var(--aval-fg);
+  border-color: var(--aval-line);
+}
+.btn-hero-aval:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.15); color: var(--aval-fg); }
 
 /* Gradiente animado (fondo por defecto del hero) */
 .bg-gradient {
@@ -276,12 +282,6 @@
 .maestro-price { position: relative; text-align: center; }
 .maestro-price .beta-solid { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); }
 .maestro-price .price-label { margin-top: 6px; }
-.maestro-incluye {
-  display: flex; align-items: flex-start; gap: 8px; text-align: left;
-  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--wha-border);
-  font-size: .84rem; color: var(--wha-muted); line-height: 1.45;
-}
-.maestro-incluye svg { color: var(--wha-primary); flex: none; margin-top: 2px; }
 
 /* Testimonios */
 .tst-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
