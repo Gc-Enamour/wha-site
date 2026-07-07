@@ -62,6 +62,25 @@
   /* Layout */
   --wha-maxw:  1180px;
   --wha-readw: 760px;
+
+  /* Colores semánticos extra (badges, estados) */
+  --wha-gold:       #B68A3C;
+  --wha-on-hero:    #ffffff;
+
+  /* Badges: aval (verde) */
+  --aval-bg:   #EAF5EF;
+  --aval-fg:   #2C6B58;
+  --aval-line: #CFE7DC;
+
+  /* Badges: credencial / indigo */
+  --done-bg:   #E6E7F6;
+  --done-fg:   #33368E;
+  --done-line: #CDCFEE;
+
+  /* Badges: track/nivel */
+  --track-bg:   #EEF0F5;
+  --track-fg:   #4A5568;
+  --track-line: #DCE0E8;
 }
 
 html[data-theme="dark"] {
@@ -104,4 +123,18 @@ html[data-theme="dark"] {
   --wha-shadow-sm: 0 1px 2px rgba(0,0,0,.3);
   --wha-shadow:    0 6px 20px rgba(0,0,0,.4);
   --wha-shadow-lg: 0 18px 50px rgba(0,0,0,.55);
+
+  --wha-gold:   #E6C36B;
+
+  --aval-bg:   #1E3A30;
+  --aval-fg:   #7FD3B6;
+  --aval-line: #2E5446;
+
+  --done-bg:   #22244A;
+  --done-fg:   #A9ACEC;
+  --done-line: #383C6E;
+
+  --track-bg:   #2A2E38;
+  --track-fg:   #AEB6C6;
+  --track-line: #3E4452;
 }

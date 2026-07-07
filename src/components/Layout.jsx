@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme.js';
-import { UI_LANGS, makeT } from '../i18n/index.js';
+import { useLang } from '../context/LangContext.jsx';
+import { UI_LANGS } from '../i18n/index.js';
 import { Lotus, Sun, Moon, Translate, ChevDown, Ig, Fb, Yt } from './icons/index.jsx';
 import '../styles/layout.css';
 
@@ -36,8 +37,9 @@ function LangSwitcher({ lang, setLang }) {
   );
 }
 
-function SiteHeader({ t, dark, toggleTheme, lang, setLang }) {
+function SiteHeader({ dark, toggleTheme }) {
   const { pathname } = useLocation();
+  const { lang, setLang, t } = useLang();
 
   return (
     <header className="hdr">
@@ -48,11 +50,11 @@ function SiteHeader({ t, dark, toggleTheme, lang, setLang }) {
         </Link>
 
         <nav className="hdr-nav" aria-label="Navegación principal">
-          <Link to="/#formaciones" className={pathname === '/formaciones' ? 'on' : ''}>{t('nav.formaciones')}</Link>
-          <Link to="/#directorio"  className={pathname === '/directorio'  ? 'on' : ''}>{t('nav.directorio')}</Link>
-          <Link to="/#aval"        className={pathname === '/#aval'       ? 'on' : ''}>{t('nav.aval')}</Link>
-          <Link to="/#t200"        className={pathname === '/#t200'       ? 'on' : ''}>{t('nav.t200')}</Link>
-          <Link to="/etica"        className={pathname === '/etica'        ? 'on' : ''}>{t('nav.etica')}</Link>
+          <a href="/#formaciones">{t('nav.formaciones')}</a>
+          <a href="/#directorio">{t('nav.directorio')}</a>
+          <a href="/#aval">{t('nav.aval')}</a>
+          <a href="/#t200">{t('nav.t200')}</a>
+          <Link to="/etica" className={pathname === '/etica' ? 'on' : ''}>{t('nav.etica')}</Link>
         </nav>
 
         <div className="hdr-right">
@@ -68,7 +70,9 @@ function SiteHeader({ t, dark, toggleTheme, lang, setLang }) {
   );
 }
 
-function SiteFooter({ t }) {
+function SiteFooter() {
+  const { t } = useLang();
+
   const cols = [
     [t('footer.explore'), [
       { label: t('footer.link.directorio'),  to: '/#directorio'  },
@@ -91,7 +95,7 @@ function SiteFooter({ t }) {
 
   return (
     <footer className="site-footer">
-      <div className="footer-in">
+      <div className="footer-in shell">
         <div className="footer-brand">
           <Link to="/" className="brand" aria-label="World Holistic Alliance — inicio">
             <span className="brand-mark"><Lotus size={34} /></span>
@@ -135,14 +139,12 @@ function SiteFooter({ t }) {
 
 export default function Layout({ children }) {
   const [dark, toggleTheme] = useTheme();
-  const [lang, setLang] = useState('es');
-  const t = makeT(lang);
 
   return (
     <>
-      <SiteHeader t={t} dark={dark} toggleTheme={toggleTheme} lang={lang} setLang={setLang} />
+      <SiteHeader dark={dark} toggleTheme={toggleTheme} />
       <main>{children}</main>
-      <SiteFooter t={t} />
+      <SiteFooter />
     </>
   );
 }
