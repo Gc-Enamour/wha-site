@@ -29,7 +29,7 @@ function Hero({ t }) {
           <h1>{t('hero.title')}</h1>
           <p className="lead">{t('hero.lead')}</p>
           <div className="ctas">
-            <a href="#directorio" className="btn btn-on-hero"><Search size={17} /> {t('hero.cta.primary')}</a>
+            <a href={t('link.directorio')} target="_blank" rel="noopener noreferrer" className="btn btn-on-hero"><Search size={17} /> {t('hero.cta.primary')}</a>
             <a href="#aval" className="btn btn-hero-aval"><Shield size={17} /> {t('hero.cta.secondary')}</a>
           </div>
           <div className="microtrust"><Shield size={18} /> {t('hero.trust')}</div>
@@ -54,10 +54,10 @@ function About({ t }) {
 /* ── ¿Cuál es tu camino? ───────────────────────────────── */
 function Paths({ t }) {
   const cards = [
-    { k: 'aprender', Icon: Book,   color: 'var(--wha-info)'    },
-    { k: 'validar',  Icon: Shield, color: 'var(--wha-success)' },
-    { k: 't200',     Icon: Award,  color: 'var(--done-fg)'     },
-    { k: 'maestro',  Icon: Users,  color: 'var(--wha-gold)', beta: true },
+    { k: 'aprender', Icon: Book,   color: 'var(--wha-info)',    urlKey: 'link.formaciones' },
+    { k: 'validar',  Icon: Shield, color: 'var(--wha-success)', urlKey: 'link.aval'        },
+    { k: 't200',     Icon: Award,  color: 'var(--done-fg)',     urlKey: 'link.t200'        },
+    { k: 'maestro',  Icon: Users,  color: 'var(--wha-gold)',    urlKey: 'link.maestro.wa', beta: true },
   ];
   return (
     <section className="home-section" id="formaciones">
@@ -68,15 +68,15 @@ function Paths({ t }) {
           <p>{t('paths.lead')}</p>
         </div>
         <div className="paths">
-          {cards.map(({ k, Icon, color, beta }) => (
-            <article key={k} className="path" style={{ '--path-accent': color }}>
+          {cards.map(({ k, Icon, color, urlKey, beta }) => (
+            <a key={k} href={t(urlKey)} target="_blank" rel="noopener noreferrer" className="path" style={{ '--path-accent': color }}>
               {beta && <span className="beta-tag">{t('paths.maestro.beta')}</span>}
               <div className="path-ic" style={{ color }}><Icon size={28} /></div>
               <div className="want">{t(`paths.${k}.want`)}</div>
               <h3>{t(`paths.${k}.title`)}</h3>
               <p className="desc">{t(`paths.${k}.desc`)}</p>
               <span className="go">{t(`paths.${k}.cta`)} <ChevRight size={15} /></span>
-            </article>
+            </a>
           ))}
         </div>
       </div>
@@ -127,7 +127,7 @@ function Directory({ t }) {
           {SAMPLE_PROFILES.map((p, i) => <SampleCard key={i} p={p} t={t} />)}
         </div>
         <div className="sec-cta">
-          <a href="#" className="btn btn-primary"><Search size={17} /> {t('dir.cta')}</a>
+          <a href={t('link.directorio')} target="_blank" rel="noopener noreferrer" className="btn btn-primary"><Search size={17} /> {t('dir.cta')}</a>
         </div>
       </div>
     </section>
@@ -161,7 +161,7 @@ function Aval({ t }) {
           <div className="price-label">{t('aval.price.label')}</div>
           <div className="price"><b>{t('aval.price.value')}</b><span>{t('aval.price.per')}</span></div>
           <div className="price-note">{t('aval.price.note')}</div>
-          <button className="btn btn-primary full"><Shield size={17} /> {t('aval.cta')}</button>
+          <a href={t('link.aval')} target="_blank" rel="noopener noreferrer" className="btn btn-primary full"><Shield size={17} /> {t('aval.cta')}</a>
           <div className="offer-seal"><Shield size={15} /> {t('dir.badge.aval')}</div>
         </aside>
       </div>
@@ -185,7 +185,7 @@ function T200({ t }) {
           <div className="price-label">{t('t200.price.label')}</div>
           <div className="price"><b>{t('t200.price.value')}</b><span>{t('t200.price.per')}</span></div>
           <div className="price-note">{t('t200.price.note')}</div>
-          <button className="btn btn-primary full"><Award size={17} /> {t('t200.cta')}</button>
+          <a href={t('link.t200')} target="_blank" rel="noopener noreferrer" className="btn btn-primary full"><Award size={17} /> {t('t200.cta')}</a>
         </aside>
         <div className="offer-copy">
           <div className="eyebrow">{t('t200.eyebrow')}</div>
@@ -231,7 +231,7 @@ function Maestro({ t }) {
               <div className="price-label">{t('maestro.price.label')}</div>
               <div className="price"><b>{t('maestro.price.value')}</b><span>{t('maestro.price.per')}</span></div>
               <div className="price-note">{t('maestro.price.note')}</div>
-              <button className="btn btn-primary full"><Cert size={17} /> {t('maestro.cta')}</button>
+              <a href={t('link.maestro.wa')} target="_blank" rel="noopener noreferrer" className="btn btn-primary full"><Cert size={17} /> {t('maestro.cta')}</a>
             </aside>
           </div>
         </div>
@@ -296,7 +296,7 @@ function Formaciones({ t }) {
           ))}
         </div>
         <div className="sec-cta">
-          <button className="btn btn-ghost"><Book size={17} /> {t('form.cta')}</button>
+          <a href={t('link.formaciones')} target="_blank" rel="noopener noreferrer" className="btn btn-ghost"><Book size={17} /> {t('form.cta')}</a>
         </div>
       </div>
     </section>
