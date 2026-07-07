@@ -1,0 +1,287 @@
+/* Estilos compartidos para páginas legales / institucionales */
+
+/* Cabecera de página (hero oscuro) */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(125deg, var(--hero-c), var(--hero-a) 48%, var(--hero-b));
+}
+.page-hero-in {
+  max-width: var(--wha-readw);
+  margin: 0 auto;
+  padding: 60px 24px 54px;
+  text-align: center;
+  position: relative;
+}
+.page-hero .eyebrow { color: rgba(255,255,255,.82); }
+.page-hero h1 {
+  color: #fff;
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+  margin: 14px 0 0;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.page-hero p {
+  color: rgba(255,255,255,.9);
+  font-size: 1.06rem;
+  margin: 16px auto 0;
+  max-width: 560px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.page-hero .hero-logo {
+  display: inline-flex;
+  width: 56px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+}
+.page-hero .hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Documento */
+.doc {
+  max-width: var(--wha-readw);
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+.doc-intro {
+  font-size: 1.08rem;
+  color: var(--wha-muted);
+  line-height: 1.6;
+  margin: 0 0 40px;
+  text-wrap: pretty;
+}
+
+/* Sección */
+.doc-sec { margin: 0 0 34px; scroll-margin-top: 84px; }
+.doc-sec-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+}
+.doc-sec-tag {
+  font-size: .8rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--wha-primary);
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.doc-sec-h h2 { font-size: 1.28rem; color: var(--wha-heading); }
+.doc-sec p   { margin: 0 0 14px; color: var(--wha-text); text-wrap: pretty; }
+.doc-sec p:last-child { margin-bottom: 0; }
+.doc-sec ul {
+  margin: 6px 0 14px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.doc-sec ul li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--wha-text);
+  line-height: 1.6;
+}
+.doc-sec ul li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: .62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--wha-primary);
+}
+.doc-sec ul li b { color: var(--wha-heading); }
+
+/* Listas ordenadas en principios */
+.doc-sec ol {
+  margin: 8px 0 14px;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.doc-sec ol li { color: var(--wha-text); line-height: 1.6; }
+.doc-sec ol.nested { padding-left: 20px; margin: 8px 0 0; }
+
+/* Callout */
+.doc-callout {
+  background: var(--wha-surface);
+  border: 1px solid var(--wha-border);
+  border-left: 4px solid var(--wha-primary);
+  border-radius: var(--wha-r);
+  padding: 22px 24px;
+  margin: 0 0 16px;
+  box-shadow: var(--wha-shadow-sm);
+}
+.doc-callout h3 { font-size: 1.06rem; color: var(--wha-heading); margin: 0 0 10px; }
+.doc-callout p  { margin: 0 0 12px; color: var(--wha-text); }
+.doc-callout p:last-child { margin-bottom: 0; }
+.doc-callout.warn {
+  border-left-color: var(--wha-accent);
+  background: var(--wha-accent-soft);
+}
+
+/* Responsable */
+.doc-responsable {
+  background: var(--wha-surface-2);
+  border: 1px solid var(--wha-border);
+  border-radius: var(--wha-r);
+  padding: 20px 22px;
+  margin-top: 6px;
+}
+.doc-responsable p { margin: 0 0 4px; }
+.doc-responsable .name { font-weight: 800; color: var(--wha-heading); }
+.doc-responsable a { font-weight: 600; }
+
+/* Bloques intro (Código de Ética) */
+.doc-block { margin: 0 0 28px; }
+.doc-block h2 { font-size: 1.28rem; margin: 0 0 10px; }
+.intro-card {
+  background: var(--wha-surface);
+  border: 1px solid var(--wha-border);
+  border-radius: var(--wha-r);
+  padding: 22px 24px;
+  box-shadow: var(--wha-shadow-sm);
+}
+.intro-card p { margin: 0 0 12px; color: var(--wha-text); }
+.intro-card p:last-child { margin-bottom: 0; }
+
+/* Principios (Código de Ética) */
+.principles-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 22px;
+}
+.principles-head h2 { font-size: 1.28rem; }
+.principles-head .line {
+  flex: 1;
+  height: 1px;
+  background: var(--wha-border);
+}
+.principle {
+  border: 1px solid var(--wha-border);
+  border-radius: var(--wha-r);
+  padding: 22px 24px;
+  margin: 0 0 14px;
+  background: var(--wha-surface);
+  box-shadow: var(--wha-shadow-sm);
+}
+.principle-h {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 0 0 12px;
+}
+.principle-num {
+  font-size: .82rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--wha-primary);
+  padding: 4px 9px;
+  border-radius: 7px;
+  white-space: nowrap;
+  flex: none;
+  margin-top: 2px;
+}
+.principle-h h3 { font-size: 1.08rem; color: var(--wha-heading); }
+.principle p { margin: 0 0 10px; color: var(--wha-text); }
+.principle p:last-child { margin-bottom: 0; }
+.principle ol {
+  margin: 8px 0 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.principle ol li { color: var(--wha-text); line-height: 1.6; }
+.principle ol.nested { margin-top: 6px; padding-left: 18px; }
+
+/* Barra de aceptación (Código de Ética) */
+.accept-bar {
+  background: var(--wha-surface-2);
+  border-bottom: 1px solid var(--wha-border);
+}
+.accept-bar-in {
+  max-width: var(--wha-readw);
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.accept-bar-in p {
+  margin: 0;
+  font-size: .9rem;
+  color: var(--wha-muted);
+  font-weight: 600;
+}
+
+/* CTA de aceptación (abajo) */
+.accept-cta {
+  max-width: var(--wha-readw);
+  margin: 0 auto;
+  padding: 10px 24px 40px;
+  text-align: center;
+}
+
+/* Estado aceptado */
+.accept-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--wha-success);
+  font-weight: 800;
+  font-size: .9rem;
+}
+
+/* Panel de éxito */
+.success-panel {
+  max-width: var(--wha-readw);
+  margin: 0 auto 24px;
+  padding: 0 24px;
+}
+.success-inner {
+  background: var(--wha-surface);
+  border: 1px solid var(--wha-border);
+  border-radius: var(--wha-r-lg);
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: var(--wha-shadow);
+}
+.success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #EAF5EF;
+  color: var(--wha-success);
+  margin-bottom: 16px;
+}
+html[data-theme="dark"] .success-icon { background: #1E3A30; }
+.success-inner h3 { font-size: 1.18rem; margin: 0 0 10px; }
+.success-inner p  { color: var(--wha-muted); margin: 0 0 20px; }
+
+@media (max-width: 600px) {
+  .page-hero-in, .doc, .accept-cta, .success-panel { padding-left: 18px; padding-right: 18px; }
+  .principle { padding: 18px; }
+}

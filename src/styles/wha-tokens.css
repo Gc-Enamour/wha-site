@@ -1,0 +1,107 @@
+/* WHA — Variables de diseño (día/noche) */
+:root {
+  /* Tipografía */
+  --wha-font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  /* Color primario */
+  --wha-primary:       #6A1B6C;
+  --wha-primary-hover: #7E2B80;
+  --wha-primary-dark:  #5A155C;
+
+  /* Acento */
+  --wha-accent:      #7E2B80;
+  --wha-accent-soft: #F9F0F9;
+
+  /* Texto */
+  --wha-heading:    #43103F;
+  --wha-text:       #2B2230;
+  --wha-muted:      #6E6173;
+  --wha-faint:      #9D8FA0;
+
+  /* Fondos */
+  --wha-bg:           #FAF6FA;
+  --wha-surface:      #FFFFFF;
+  --wha-surface-2:    #F6F1F6;
+  --wha-border:       #ECE4EC;
+  --wha-border-strong:#DCD0DC;
+
+  /* Links */
+  --wha-link:       #7E2B80;
+  --wha-link-hover: #5A155C;
+
+  /* Estados */
+  --wha-success: #2C6B58;
+  --wha-info:    #2C6FA6;
+  --wha-indigo:  #33368E;
+
+  /* Paleta peri (chips, selección) */
+  --peri-050: #F9F0F9;
+  --peri-100: #EEDCEF;
+  --peri-200: #D8B6D9;
+  --peri-700: #5A155C;
+
+  /* Footer */
+  --wha-footer-bg: #3A0E3B;
+
+  /* Hero legal */
+  --hero-a: #7E2B80;
+  --hero-b: #5A155C;
+  --hero-c: #420F43;
+
+  /* Sombras */
+  --wha-shadow-sm: 0 1px 2px rgba(67,16,63,.04), 0 1px 1px rgba(67,16,63,.03);
+  --wha-shadow:    0 4px 18px rgba(67,16,63,.07), 0 2px 6px rgba(67,16,63,.04);
+  --wha-shadow-lg: 0 18px 50px rgba(67,16,63,.14), 0 6px 16px rgba(67,16,63,.07);
+
+  /* Radios */
+  --wha-r-sm:   10px;
+  --wha-r:      16px;
+  --wha-r-lg:   22px;
+  --wha-r-pill: 999px;
+
+  /* Layout */
+  --wha-maxw:  1180px;
+  --wha-readw: 760px;
+}
+
+html[data-theme="dark"] {
+  --wha-primary:       #B85ABA;
+  --wha-primary-hover: #C76AC9;
+  --wha-primary-dark:  #5A155C;
+
+  --wha-accent:      #C76AC9;
+  --wha-accent-soft: #2C2030;
+
+  --wha-heading: #F1E3F0;
+  --wha-text:    #F0E8F1;
+  --wha-muted:   #B6A6BC;
+  --wha-faint:   #897C8E;
+
+  --wha-bg:           #181020;
+  --wha-surface:      #241A2B;
+  --wha-surface-2:    #2C2034;
+  --wha-border:       #3A2C42;
+  --wha-border-strong:#4C3A55;
+
+  --wha-link:       #DBA6DC;
+  --wha-link-hover: #E7C9E8;
+
+  --wha-success: #5FB89C;
+  --wha-info:    #86C2EC;
+  --wha-indigo:  #A9ACEC;
+
+  --peri-050: #3A2740;
+  --peri-100: #4A3350;
+  --peri-200: #5A3A5C;
+  --peri-700: #DBA6DC;
+
+  --wha-footer-bg: #120A18;
+
+  --hero-a: #4A1149;
+  --hero-b: #2A0C2A;
+  --hero-c: #1A0A20;
+
+  --wha-shadow-sm: 0 1px 2px rgba(0,0,0,.3);
+  --wha-shadow:    0 6px 20px rgba(0,0,0,.4);
+  --wha-shadow-lg: 0 18px 50px rgba(0,0,0,.55);
+}
