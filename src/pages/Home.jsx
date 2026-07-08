@@ -86,10 +86,10 @@ function Paths({ t }) {
 
 /* ── Directorio (muestra) ──────────────────────────────── */
 const SAMPLE_PROFILES = [
-  { name: 'Silvia Casal',          type: 'Terapeuta avalado', track: 'WHA-N5', modality: 'Presencial y Online', bio: 'Fundadora de Paloma Aromas y Bienestar para el Alma. Profesora universitaria y terapeuta holística con amplia trayectoria.', centro: false },
-  { name: 'Ana María Rojas Acuña', type: 'Terapeuta avalado', track: 'WHA-N5', modality: 'Presencial y Online', bio: 'Hola, soy Ana María, soy de Bogotá, Colombia. Si estás aquí, creo que nuestro encuentro no es casualidad.',                   centro: false },
-  { name: 'Jacqueline Alvarenga',  type: 'Terapeuta avalado', track: 'WHA-N5', modality: 'Presencial y Online', bio: 'Soy Psicóloga, con una Maestría en Psicología Clínica. Tengo 32 años de ejercicio acompañando procesos de sanación.',         centro: false },
-  { name: 'Centro Armonía Interior', type: 'Maestro / Centro', track: 'WHA-N20', modality: 'Online',           bio: 'Espacio de formación y sanación en meditación, Reiki y cristales. Más de una década formando terapeutas.',                 centro: true  },
+  { name: 'Silvia Casal',          type: 'Terapeuta avalado', track: 'WHA-N5',  modality: 'Presencial y Online', bio: 'Fundadora de Paloma Aromas y Bienestar para el Alma. Profesora universitaria y terapeuta holística con amplia trayectoria.', centro: false, img: '/terapeutas/silvia-casal.webp' },
+  { name: 'Ana María Rojas Acuña', type: 'Terapeuta avalado', track: 'WHA-N5',  modality: 'Presencial y Online', bio: 'Hola, soy Ana María, soy de Bogotá, Colombia. Si estás aquí, creo que nuestro encuentro no es casualidad.',                   centro: false, img: '/terapeutas/ana-maria-rojas-acuna.webp' },
+  { name: 'Romina Pereyra',        type: 'Terapeuta avalado', track: 'WHA-N5',  modality: 'Presencial y Online', bio: 'Soy Romina Pereyra. Terapeuta Holística. Canalizadora profesional. Creadora de K…',                                          centro: false, img: '/terapeutas/romina-pereyra.webp' },
+  { name: 'Centro Armonía Interior', type: 'Maestro / Centro', track: 'WHA-N20', modality: 'Online',            bio: 'Espacio de formación y sanación en meditación, Reiki y cristales. Más de una década formando terapeutas.',                 centro: true,  img: '/terapeutas/centro-armonia-interior.webp' },
 ];
 
 function SampleCard({ p, t }) {
@@ -97,7 +97,7 @@ function SampleCard({ p, t }) {
     <article className="mini-card">
       <div className="mini-body">
         <div className={'mini-av' + (p.centro ? ' sq' : '')}>
-          {p.centro ? '🏛' : '👤'}
+          <img src={p.img} alt={p.name} loading="lazy" />
         </div>
         <div className="mini-main">
           <h3>{p.name}</h3>

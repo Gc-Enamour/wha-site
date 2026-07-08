@@ -343,3 +343,7 @@
   .maestro-band { padding: 26px 20px; }
   .price b { font-size: 2.2rem; }
 }
+
+html[data-theme="dark"] .btn-on-hero { color: #6A1B6C; }
+
+.mini-av img { width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: inherit; display: block; }
