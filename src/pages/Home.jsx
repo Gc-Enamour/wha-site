@@ -285,9 +285,9 @@ function Formaciones({ t }) {
           <p>{t('form.lead')}</p>
         </div>
         <div className="form-grid">
-          {items.map(({ name, url }, i) => (
+          {items.map(({ name, url, img }, i) => (
             <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="form-card">
-              <div className="form-thumb">Imagen</div>
+              <img src={img} alt={name} loading="lazy" className="form-thumb" />
               <div className="form-info">
                 <h3>{name}</h3>
                 <span className="form-dur"><Shield size={12} /> {t('form.duration')}</span>

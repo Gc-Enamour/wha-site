@@ -311,8 +311,7 @@
 }
 .form-card:hover { transform: translateY(-3px); box-shadow: var(--wha-shadow); border-color: var(--peri-200); }
 .form-thumb {
-  height: 150px; display: flex; align-items: center; justify-content: center;
-  background: var(--peri-050); color: var(--wha-faint); font-size: .8rem; font-weight: 600;
+  height: 160px; width: 100%; object-fit: cover; display: block;
 }
 .form-info { padding: 16px 18px; }
 .form-info h3 { font-size: 1.05rem; color: var(--wha-heading); margin: 0; }
