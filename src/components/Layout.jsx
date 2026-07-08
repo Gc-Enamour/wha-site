@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext.jsx';
 import { UI_LANGS } from '../i18n/index.js';
-import { Sun, Moon, Translate, ChevDown, Users, Pencil, X, List } from './icons/index.jsx';
+import { Sun, Moon, Translate, ChevDown, Users, Pencil, X, List, Ig, Fb, Yt, TikTok, Whatsapp, Spotify } from './icons/index.jsx';
 import '../styles/dir-layout.css';
 
 /* ---------- Toggle tema claro / oscuro ---------- */
@@ -133,6 +133,14 @@ function Footer() {
   return (
     <footer className="ftr">
       <div className="ftr-in">
+        <div className="ftr-socials">
+          <a href="https://www.instagram.com/worldholisticalliance/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Ig size={22}/></a>
+          <a href="https://www.facebook.com/worldholisticalliance" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Fb size={22}/></a>
+          <a href="https://www.youtube.com/@worldholisticalliance" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Yt size={22}/></a>
+          <a href="https://www.tiktok.com/@holisticalliance" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><TikTok size={22}/></a>
+          <a href="https://api.whatsapp.com/send?phone=541124014443&text=Hola%20WHA!%20Tengo%20una%20consulta" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><Whatsapp size={22}/></a>
+          <a href="https://open.spotify.com/show/5eMo2HgyM354DI4BY7tNLd" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><Spotify size={22}/></a>
+        </div>
         <div className="ftr-top">
           <div className="ftr-brand">
             <div className="serif">World Holistic Alliance</div>
@@ -169,6 +177,10 @@ function Footer() {
         <div className="ftr-bot">
           <span>Copyright © 2026 World Holistic Alliance.</span>
           <span>El aval significa que WHA ha revisado la documentación formativa presentada. No garantiza resultados ni supervisa el trabajo profesional.</span>
+        </div>
+        <div className="ftr-aviso">
+          <p className="ftr-aviso-title">Aviso legal</p>
+          <p>Las Terapias Holísticas colaboran con los tratamientos médicos, pero no lo reemplazan. Si padece alguna dolencia, consulte a un profesional de la salud matriculado. No abandone ninguna clase de tratamiento médico o medicaciones que le hayan sido recetadas, sin la previa aprobación de su médico. Siempre consulte a su médico antes de iniciar una terapia alternativa. WHA (WorldHolisticAlliance.org) no asume ninguna responsabilidad sobre el uso que usted haga con la información que este sitio replica y sus posibles efectos en su salud o la de sus pacientes.</p>
         </div>
       </div>
     </footer>
