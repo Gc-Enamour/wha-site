@@ -242,9 +242,9 @@ function Maestro({ t }) {
 
 /* ── Testimonios ───────────────────────────────────────── */
 const TESTIMONIALS = [
-  ['test.1.q', 'test.1.n', 'test.1.r'],
-  ['test.2.q', 'test.2.n', 'test.2.r'],
-  ['test.3.q', 'test.3.n', 'test.3.r'],
+  ['test.1.q', 'test.1.n', 'test.1.r', 'test.1.img'],
+  ['test.2.q', 'test.2.n', 'test.2.r', 'test.2.img'],
+  ['test.3.q', 'test.3.n', 'test.3.r', 'test.3.img'],
 ];
 
 function Testimonials({ t }) {
@@ -256,9 +256,9 @@ function Testimonials({ t }) {
           <h2>{t('test.title')}</h2>
         </div>
         <div className="tst-grid">
-          {TESTIMONIALS.map(([q, n, r], i) => (
+          {TESTIMONIALS.map(([q, n, r, img], i) => (
             <figure key={i} className="tst">
-              <div className="tst-photo">👤</div>
+              <img src={t(img)} alt={t(n)} loading="lazy" className="tst-photo" />
               <span className="tst-q"><Quote size={24} /></span>
               <blockquote>{t(q)}</blockquote>
               <figcaption>

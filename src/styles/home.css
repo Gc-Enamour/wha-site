@@ -293,8 +293,7 @@
 .tst-photo {
   width: 84px; height: 84px; border-radius: 50%; overflow: hidden;
   margin-bottom: 16px; border: 3px solid var(--peri-050); box-shadow: var(--wha-shadow-sm);
-  background: var(--wha-surface-2); display: flex; align-items: center;
-  justify-content: center; color: var(--wha-faint); font-size: 2rem; flex-shrink: 0;
+  flex-shrink: 0; object-fit: cover; display: block;
 }
 .tst-q { color: var(--peri-200); margin-bottom: 6px; }
 .tst blockquote { margin: 0; font-size: 1.02rem; line-height: 1.6; color: var(--wha-heading); font-weight: 500; flex: 1; text-wrap: pretty; }
