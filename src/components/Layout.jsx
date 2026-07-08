@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext.jsx';
 import { UI_LANGS } from '../i18n/index.js';
-import { Sun, Moon, Translate, ChevDown, Users, Pencil, X, List, Ig, Fb, Yt, TikTok, Whatsapp, Spotify } from './icons/index.jsx';
+import { Sun, Moon, Translate, ChevDown, Users, Pencil, X, List, Ig, Fb, Yt, TikTok, Whatsapp, Spotify, LinkedIn } from './icons/index.jsx';
 import '../styles/dir-layout.css';
 
 /* ---------- Toggle tema claro / oscuro ---------- */
@@ -134,12 +134,13 @@ function Footer() {
     <footer className="ftr">
       <div className="ftr-in">
         <div className="ftr-socials">
-          <a href="https://www.instagram.com/worldholisticalliance/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Ig size={22}/></a>
-          <a href="https://www.facebook.com/worldholisticalliance" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Fb size={22}/></a>
-          <a href="https://www.youtube.com/@worldholisticalliance" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Yt size={22}/></a>
-          <a href="https://www.tiktok.com/@holisticalliance" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><TikTok size={22}/></a>
-          <a href="https://api.whatsapp.com/send?phone=541124014443&text=Hola%20WHA!%20Tengo%20una%20consulta" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><Whatsapp size={22}/></a>
-          <a href="https://open.spotify.com/show/5eMo2HgyM354DI4BY7tNLd" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><Spotify size={22}/></a>
+          <a href="https://www.instagram.com/worldholisticalliance/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Ig size={28}/></a>
+          <a href="https://www.facebook.com/worldholisticalliance" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Fb size={28}/></a>
+          <a href="https://www.youtube.com/@worldholisticalliance" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Yt size={28}/></a>
+          <a href="https://www.tiktok.com/@holisticalliance" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><TikTok size={28}/></a>
+          <a href="https://api.whatsapp.com/send?phone=541124014443&text=Hola%20WHA!%20Tengo%20una%20consulta" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><Whatsapp size={28}/></a>
+          <a href="https://open.spotify.com/show/5eMo2HgyM354DI4BY7tNLd" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><Spotify size={28}/></a>
+          <a href="https://www.linkedin.com/company/worldholisticalliance" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedIn size={28}/></a>
         </div>
         <div className="ftr-top">
           <div className="ftr-brand">

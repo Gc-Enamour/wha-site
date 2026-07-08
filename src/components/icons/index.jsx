@@ -209,11 +209,9 @@ export function TikTok({ size = 24 }) {
 
 export function Whatsapp({ size = 24 }) {
   return (
-    <Icon size={size} path={<>
+    <Icon size={size} path={
       <path d="M3 21l1.5-4.5A9 9 0 1 1 7.5 19.5Z"/>
-      <path d="M9.5 9c.3.6.7 1.2 1.2 1.7.5.5 1.1.9 1.8 1.2M9.5 9C9 8 9 7 9.5 6.5c.7-.7 1.5-.5 2 .2l.8 1.1c.3.5.2 1.1-.2 1.5l-.1.1"/>
-      <path d="M12.5 11.9c.5.9 1.3 1.6 2.2 2.1l.1-.1c.4-.4 1-.5 1.5-.2l1.1.8c.7.5.9 1.3.2 2-.5.5-1.5.5-2.5 0"/>
-    </>} />
+    } />
   );
 }
 
@@ -221,9 +219,18 @@ export function Spotify({ size = 24 }) {
   return (
     <Icon size={size} path={<>
       <circle cx="12" cy="12" r="9"/>
-      <path d="M8 13.5c2.5-1 5.5-.8 7.5.8"/>
+      <path d="M8 13.5c2.5-1 5.5-.8 8 .8"/>
       <path d="M7.5 11c3-1.2 6.5-1 9 1"/>
-      <path d="M8.5 16c2-. 8 4.5-.7 6.5.7"/>
+      <path d="M9 16c1.8-.7 4-.6 5.5.5"/>
+    </>} />
+  );
+}
+
+export function LinkedIn({ size = 24 }) {
+  return (
+    <Icon size={size} path={<>
+      <rect x="3" y="3" width="18" height="18" rx="4"/>
+      <path d="M8 11v6M8 8v.01M12 11v6M12 14a3 3 0 0 1 6 0v3"/>
     </>} />
   );
 }

@@ -73,7 +73,7 @@ html[data-theme="dark"] {
 /* ---------- Footer ---------- */
 .ftr { margin-top: auto; background: var(--header-bg); color: #fff; padding: 54px 0 30px; }
 .ftr-in { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
-.ftr-top { display: flex; flex-wrap: wrap; gap: 40px 60px; justify-content: space-between; padding-bottom: 34px; border-bottom: 1px solid rgba(255,255,255,.18); }
+.ftr-top { display: flex; flex-wrap: wrap; gap: 40px 60px; justify-content: space-between; padding-bottom: 34px; }
 .ftr h5 { font-family: var(--font-sans); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: .74rem; color: #fff; margin: 0 0 14px; }
 .ftr ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
 .ftr ul a { color: rgba(255,255,255,.85); font-size: .9rem; cursor: pointer; }
@@ -83,10 +83,10 @@ html[data-theme="dark"] {
 .ftr-brand p { color: rgba(255,255,255,.8); font-size: .88rem; margin: .6rem 0 0; }
 .ftr-bot { padding-top: 22px; font-size: .78rem; color: rgba(255,255,255,.72); display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; align-items: center; }
 .ftr-bot a { color: rgba(255,255,255,.86); text-decoration: underline; text-underline-offset: 2px; }
-.ftr-socials { display: flex; gap: 20px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.18); }
+.ftr-socials { display: flex; gap: 20px; padding-bottom: 28px; }
 .ftr-socials a { color: rgba(255,255,255,.7); transition: color .15s; display: flex; }
 .ftr-socials a:hover { color: #fff; }
-.ftr-aviso { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); font-size: .74rem; color: rgba(255,255,255,.45); line-height: 1.6; }
+.ftr-aviso { margin-top: 20px; padding-top: 18px; font-size: .74rem; color: rgba(255,255,255,.45); line-height: 1.6; }
 .ftr-aviso p { margin: 0; }
 .ftr-aviso-title { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .68rem; margin-bottom: 6px !important; color: rgba(255,255,255,.55); }
 
