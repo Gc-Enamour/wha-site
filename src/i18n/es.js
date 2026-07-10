@@ -109,12 +109,12 @@ const es = {
   "form.cta":       "Ver todas las formaciones",
   "form.duration":  "Formación avalada",
   "form.items": [
-    { "name": "Maestrías Reiki",       "url": "https://worldholisticalliance.com/packmaestriasreiki/",        "img": "/formaciones/maestrias-reiki.webp" },
-    { "name": "Movimiento Consciente", "url": "https://worldholisticalliance.com/packterapeutadelmovimiento", "img": "/formaciones/movimiento-consciente.webp" },
-    { "name": "Biodescodificación",    "url": "https://worldholisticalliance.com/packbiodescodificacion/",    "img": "/formaciones/biodescodificacion.webp" },
-    { "name": "Radiestesia y Péndulo", "url": "https://worldholisticalliance.com/packterapeutaradiestesico/", "img": "/formaciones/radiestesia-pendulo.webp" },
-    { "name": "Numerología Sagrada",   "url": "https://worldholisticalliance.com/packnumerologiadelalma/",    "img": "/formaciones/numerologia-sagrada.webp" },
-    { "name": "Cirugía Astral",        "url": "https://astrocurso.com/cirugiaastral/",                        "img": "/formaciones/cirugia-astral.webp" },
+    { "name": "Maestrías Reiki",       "url": "https://worldholisticalliance.com/packmaestriasreiki/",        "img": "/img-formaciones/maestrias-reiki.webp" },
+    { "name": "Movimiento Consciente", "url": "https://worldholisticalliance.com/packterapeutadelmovimiento", "img": "/img-formaciones/movimiento-consciente.webp" },
+    { "name": "Biodescodificación",    "url": "https://worldholisticalliance.com/packbiodescodificacion/",    "img": "/img-formaciones/biodescodificacion.webp" },
+    { "name": "Radiestesia y Péndulo", "url": "https://worldholisticalliance.com/packterapeutaradiestesico/", "img": "/img-formaciones/radiestesia-pendulo.webp" },
+    { "name": "Numerología Sagrada",   "url": "https://worldholisticalliance.com/packnumerologiadelalma/",    "img": "/img-formaciones/numerologia-sagrada.webp" },
+    { "name": "Cirugía Astral",        "url": "https://astrocurso.com/cirugiaastral/",                        "img": "/img-formaciones/cirugia-astral.webp" },
   ],
 
   "link.directorio":  "https://directorio.worldholisticalliance.org/",
