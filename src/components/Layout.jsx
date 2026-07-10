@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LangContext.jsx';
 import { UI_LANGS } from '../i18n/index.js';
-import { Sun, Moon, Translate, ChevDown, Users, Pencil, X, List, Ig, Fb, Yt, TikTok, Whatsapp, Spotify, LinkedIn } from './icons/index.jsx';
+import { Sun, Moon, Translate, ChevDown, Users, Pencil, X, List, Shield, Award, Ig, Fb, Yt, TikTok, Whatsapp, Spotify, LinkedIn } from './icons/index.jsx';
 import '../styles/dir-layout.css';
 
 /* ---------- Toggle tema claro / oscuro ---------- */
@@ -63,6 +63,7 @@ function LangSwitcher() {
 function Header() {
   const [open, setOpen] = useState(false);
   const [accOpen, setAccOpen] = useState(false);
+  const [seParteOpen, setSeParteOpen] = useState(false);
   const accRef = useRef(null);
   const { pathname } = useLocation();
 
@@ -83,7 +84,22 @@ function Header() {
         <nav className="nav" aria-label="Navegación principal">
           <a href="https://directorio.worldholisticalliance.org/">Directorio</a>
           <a href="https://formaciones.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer">Formaciones</a>
-          <a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer">Sé parte de WHA</a>
+          <div className="nav-drop">
+            <a className="nav-drop-btn">Sé parte de WHA <ChevDown size={13} /></a>
+            <div className="nav-drop-menu">
+              <div className="nav-drop-inner">
+                <a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer">
+                  <Shield size={15} /> Aval Terapeuta WHA
+                </a>
+                <a href="https://wa.me/5491124014443?text=Quiero%20sumarme%20a%20la%20lista%20de%20espera%20Aval%20Maestro%2FCentro%20Hol%C3%ADstico%20WHA" target="_blank" rel="noopener noreferrer">
+                  <Users size={15} /> Aval Maestro / Centro Holístico <span className="acc-badge">BETA</span>
+                </a>
+                <a href="https://worldholisticalliance.com/terapeutaintegralwhat200/" target="_blank" rel="noopener noreferrer">
+                  <Award size={15} /> Certificación T200
+                </a>
+              </div>
+            </div>
+          </div>
           <Link to="/etica" className={pathname === '/etica' ? 'active' : ''}>Ética</Link>
           <div className="nav-acc" ref={accRef}>
             <a className="nav-acc-btn" onClick={() => setAccOpen(o => !o)}>
@@ -117,7 +133,14 @@ function Header() {
         <div className="mnav">
           <a href="https://directorio.worldholisticalliance.org/" onClick={() => setOpen(false)}>Directorio</a>
           <a href="https://formaciones.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Formaciones</a>
-          <a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Sé parte de WHA</a>
+          <div className="mnav-toggle" onClick={() => setSeParteOpen(o => !o)}>
+            Sé parte de WHA <ChevDown size={13} style={seParteOpen ? { transform: 'rotate(180deg)' } : {}} />
+          </div>
+          {seParteOpen && <>
+            <a className="mnav-sub" href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Aval Terapeuta WHA</a>
+            <a className="mnav-sub" href="https://wa.me/5491124014443?text=Quiero%20sumarme%20a%20la%20lista%20de%20espera%20Aval%20Maestro%2FCentro%20Hol%C3%ADstico%20WHA" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Aval Maestro / Centro <span className="acc-badge acc-badge--light">BETA</span></a>
+            <a className="mnav-sub" href="https://worldholisticalliance.com/terapeutaintegralwhat200/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Certificación T200</a>
+          </>}
           <Link to="/etica" onClick={() => setOpen(false)}>Ética</Link>
           <div className="mnav-group">Acceso</div>
           <a className="mnav-sub" href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso alumnos</a>
