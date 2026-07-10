@@ -69,7 +69,7 @@ function Header() {
   return (
     <header className="hdr">
       <div className="hdr-in">
-        <a className="brand" href="https://worldholisticalliance.com">
+        <a className="brand" href="https://worldholisticalliance.org">
           <img src="/logo.png" alt="Logo WHA" style={{ width: '50px', height: '50px', borderRadius: '12px' }} />
           <span className="sr">World Holistic Alliance</span>
         </a>
@@ -101,7 +101,7 @@ function Header() {
                 <a href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer">
                   <Users size={15} /> Acceso alumnos
                 </a>
-                <a href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer">
+                <a href="https://directorio.worldholisticalliance.org/acceso" target="_blank" rel="noopener noreferrer">
                   <Pencil size={15} /> Acceso formadores
                 </a>
               </div>
@@ -136,7 +136,7 @@ function Header() {
           </div>
           {accExpanded && <>
             <a className="mnav-sub" href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso alumnos</a>
-            <a className="mnav-sub" href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso formadores</a>
+            <a className="mnav-sub" href="https://directorio.worldholisticalliance.org/acceso" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso formadores</a>
           </>}
         </div>
       )}
