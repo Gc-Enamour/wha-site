@@ -62,16 +62,9 @@ function LangSwitcher() {
 /* ---------- Header ---------- */
 function Header() {
   const [open, setOpen] = useState(false);
-  const [accOpen, setAccOpen] = useState(false);
   const [seParteOpen, setSeParteOpen] = useState(false);
-  const accRef = useRef(null);
+  const [accExpanded, setAccExpanded] = useState(false);
   const { pathname } = useLocation();
-
-  useEffect(() => {
-    function onDoc(e) { if (accRef.current && !accRef.current.contains(e.target)) setAccOpen(false); }
-    document.addEventListener('click', onDoc);
-    return () => document.removeEventListener('click', onDoc);
-  }, []);
 
   return (
     <header className="hdr">
@@ -101,22 +94,18 @@ function Header() {
             </div>
           </div>
           <Link to="/etica" className={pathname === '/etica' ? 'active' : ''}>Ética</Link>
-          <div className="nav-acc" ref={accRef}>
-            <a className="nav-acc-btn" onClick={() => setAccOpen(o => !o)}>
-              Acceso <ChevDown size={13} />
-            </a>
-            {accOpen && (
-              <div className="acc-menu">
-                <a href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer"
-                  onClick={() => setAccOpen(false)}>
+          <div className="nav-drop">
+            <a className="nav-drop-btn">Acceso <ChevDown size={13} /></a>
+            <div className="nav-drop-menu">
+              <div className="nav-drop-inner">
+                <a href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer">
                   <Users size={15} /> Acceso alumnos
                 </a>
-                <a href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer"
-                  onClick={() => setAccOpen(false)}>
+                <a href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer">
                   <Pencil size={15} /> Acceso formadores
                 </a>
               </div>
-            )}
+            </div>
           </div>
         </nav>
 
@@ -142,9 +131,13 @@ function Header() {
             <a className="mnav-sub" href="https://worldholisticalliance.com/terapeutaintegralwhat200/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Certificación T200</a>
           </>}
           <Link to="/etica" onClick={() => setOpen(false)}>Ética</Link>
-          <div className="mnav-group">Acceso</div>
-          <a className="mnav-sub" href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso alumnos</a>
-          <a className="mnav-sub" href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso formadores</a>
+          <div className="mnav-toggle" onClick={() => setAccExpanded(o => !o)}>
+            Acceso <ChevDown size={13} style={accExpanded ? { transform: 'rotate(180deg)' } : {}} />
+          </div>
+          {accExpanded && <>
+            <a className="mnav-sub" href="https://consumer.hotmart.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso alumnos</a>
+            <a className="mnav-sub" href="https://directorio.worldholisticalliance.org/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Acceso formadores</a>
+          </>}
         </div>
       )}
     </header>
