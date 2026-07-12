@@ -74,8 +74,10 @@
   align-items: center;
   gap: 8px;
   appearance: none;
-  padding: 14px 26px;
+  font-family: inherit;
   font-size: .88rem;
+  line-height: 1.6;
+  padding: 14px 26px;
   cursor: pointer;
 }
 .aval-drop-panel {
