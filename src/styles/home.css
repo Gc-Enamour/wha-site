@@ -97,9 +97,10 @@
 .aval-drop-opt:hover { background: var(--wha-surface-2); }
 .aval-drop-title { font-weight: 700; font-size: .95rem; color: var(--wha-heading); display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; }
 .aval-drop-title .beta-tag {
-  white-space: nowrap; font-size: .62rem; font-weight: 800; letter-spacing: .08em;
-  text-transform: uppercase; color: #fff; background: var(--wha-gold);
-  padding: 3px 8px; border-radius: 999px; display: inline-flex; align-items: center; flex-shrink: 0;
+  white-space: nowrap !important; font-size: .62rem; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; color: #fff !important; background: var(--wha-gold) !important;
+  padding: 3px 8px; border-radius: 999px; display: inline-flex !important;
+  align-items: center !important; flex-shrink: 0 !important; position: static !important;
 }
 .aval-drop-desc  { font-size: .8rem; color: var(--wha-muted); margin-top: 4px; line-height: 1.4; }
 @media (max-width: 560px) {
