@@ -23,6 +23,12 @@ function AvalDropdown({ t }) {
     return () => document.removeEventListener('click', onDoc);
   }, []);
 
+  useEffect(() => {
+    function onScroll() { setOpen(false); }
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div className="aval-drop" ref={ref}>
       <button className="btn btn-hero-aval" onClick={() => setOpen(o => !o)}>
