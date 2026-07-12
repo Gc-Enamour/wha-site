@@ -125,7 +125,13 @@
 }
 .aval-drop-desc  { font-size: .8rem; color: var(--wha-muted); margin-top: 4px; line-height: 1.4; }
 @media (max-width: 560px) {
-  .aval-drop-panel { left: 50%; transform: translateX(-50%); min-width: 280px; }
+  .aval-drop-panel {
+    left: 0;
+    right: auto;
+    transform: none;
+    margin-left: 16px;
+    min-width: calc(100vw - 32px);
+  }
 }
 
 /* Gradiente animado (fondo por defecto del hero) */
