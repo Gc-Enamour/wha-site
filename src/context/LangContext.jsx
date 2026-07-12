@@ -4,7 +4,10 @@ import { makeT } from '../i18n/index.js';
 export const LangContext = createContext(null);
 
 export function LangProvider({ children }) {
-  const [lang, setLang] = useState('es');
+  const [lang, setLang] = useState(() => {
+    const match = document.cookie.match(/(?:^|;\s*)wha-lang=([^;]+)/);
+    return match ? match[1] : 'es';
+  });
   const t = makeT(lang);
   return (
     <LangContext.Provider value={{ lang, setLang, t }}>

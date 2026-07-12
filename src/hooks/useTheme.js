@@ -10,7 +10,8 @@ export function useTheme() {
     setDark(next);
     const value = next ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', value);
-    try { localStorage.setItem('wha-site-theme', value); } catch (_) {}
+    const opts = "; domain=.worldholisticalliance.org; path=/; max-age=31536000; SameSite=Lax; Secure";
+    document.cookie = "wha-theme=" + value + opts;
   };
 
   return [dark, toggle];

@@ -1,15 +1,47 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LangContext.jsx';
 import {
   Search, Shield, Book, Award, Users, Cert, Star,
-  Sparkle, Layers, Check, ChevRight, Quote,
+  Sparkle, Layers, Check, ChevRight, Quote, ChevDown,
 } from '../components/icons/index.jsx';
 import '../styles/home.css';
 
 /* Placeholder para imágenes aún no disponibles */
 function ImgPlaceholder({ label, className }) {
   return <div className={'img-ph ' + (className || '')} aria-hidden="true">{label}</div>;
+}
+
+/* ── Aval dropdown ─────────────────────────────────────── */
+function AvalDropdown({ t }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    function onDoc(e) { if (ref.current && !ref.current.contains(e.target)) setOpen(false); }
+    document.addEventListener('click', onDoc);
+    return () => document.removeEventListener('click', onDoc);
+  }, []);
+
+  return (
+    <div className="aval-drop" ref={ref}>
+      <button className="btn btn-hero-aval" onClick={() => setOpen(o => !o)}>
+        <Shield size={17} /> {t('hero.cta.secondary')} <ChevDown size={14} className={open ? 'rot' : ''} />
+      </button>
+      {open && (
+        <div className="aval-drop-panel">
+          <a href={t('link.aval')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
+            <div className="aval-drop-title">Aval Terapeuta WHA</div>
+            <div className="aval-drop-desc">Directorio oficial · Academia WHA incluida</div>
+          </a>
+          <a href={t('link.maestro.wa')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
+            <div className="aval-drop-title">Aval Maestro/Centro Holístico WHA <span className="beta-tag">BETA</span></div>
+            <div className="aval-drop-desc">Directorio oficial · Emite certificados WHA · Academia incluida</div>
+          </a>
+        </div>
+      )}
+    </div>
+  );
 }
 
 /* ── Hero ──────────────────────────────────────────────── */
@@ -30,7 +62,7 @@ function Hero({ t }) {
           <p className="lead">{t('hero.lead')}</p>
           <div className="ctas">
             <a href={t('link.directorio')} target="_blank" rel="noopener noreferrer" className="btn btn-on-hero"><Search size={17} /> {t('hero.cta.primary')}</a>
-            <a href="#aval" className="btn btn-hero-aval"><Shield size={17} /> {t('hero.cta.secondary')}</a>
+            <AvalDropdown t={t} />
           </div>
           <div className="microtrust"><Shield size={18} /> {t('hero.trust')}</div>
         </div>

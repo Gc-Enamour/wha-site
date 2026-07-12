@@ -9,8 +9,8 @@
     <!-- Previene FOUC de tema -->
     <script>
       try {
-        var t = localStorage.getItem('wha-theme');
-        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        var m = document.cookie.match(/(?:^|;\s*)wha-theme=([^;]+)/);
+        var t = m ? m[1] : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', t);
       } catch (_) {}
     </script>
@@ -25,7 +25,7 @@
     <div id="root"></div>
     <wha-footer></wha-footer>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="https://worldholisticalliance.org/shared/wha-nav.js?v=1.4"></script>
+    <script src="https://worldholisticalliance.org/shared/wha-nav.js?v=1.8"></script>
     <script>(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="M_ONx-q6y-P9FVW10MGyr";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();</script>
   </body>
 </html>

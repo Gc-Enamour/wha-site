@@ -121,7 +121,7 @@ const es = {
   "link.formaciones": "https://formaciones.worldholisticalliance.org/?idioma=es",
   "link.aval":        "https://worldholisticalliance.com/avalwha/",
   "link.t200":        "https://worldholisticalliance.com/terapeutaintegralwhat200/",
-  "link.maestro.wa":  "https://wa.me/5491124014443?text=Quiero%20sumarme%20a%20la%20lista%20de%20espera%20Aval%20Maestro%2FCentro%20Hol%C3%ADstico%20WHA",
+  "link.maestro.wa":  "https://wa.me/5491124014443?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Aval%20Maestro%2FCentro%20Hol%C3%ADstico%20WHA",
 
   "footer.tagline":          "Asociación internacional de profesionales del mundo holístico.",
   "footer.explore":          "Explorar",
