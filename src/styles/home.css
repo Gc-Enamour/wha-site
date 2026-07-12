@@ -72,8 +72,9 @@
 .aval-drop .btn-hero-aval { display: inline-flex; align-items: center; gap: 8px; }
 .aval-drop-panel {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 0;
+  padding-top: 10px;
   min-width: 300px;
   background: var(--wha-surface);
   border: 1px solid var(--wha-border);
@@ -83,7 +84,7 @@
   z-index: 200;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .15s;
+  transition: opacity .15s .1s;
 }
 @media (hover: hover) {
   .aval-drop:hover .aval-drop-panel {
