@@ -86,7 +86,7 @@
   left: 0;
   padding-top: 10px;
   min-width: 300px;
-  background: var(--wha-surface);
+  background: #EAF5EF;
   border: 1px solid var(--wha-border);
   border-radius: 14px;
   box-shadow: var(--wha-shadow-lg);
@@ -404,5 +404,6 @@
 }
 
 html[data-theme="dark"] .btn-on-hero { color: #6A1B6C; }
+html[data-theme="dark"] .aval-drop-panel { background: #1A3028; }
 
 .mini-av img { width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: inherit; display: block; }

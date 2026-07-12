@@ -75,7 +75,7 @@
     .wha-drop-inner a:hover { background: var(--wha-nav-p050); color: var(--wha-nav-p700); }
     .wha-drop-inner a svg { color: var(--wha-nav-p600); flex: none; }
 
-    .wha-badge { font-size: .6rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: var(--wha-nav-p100); color: var(--wha-nav-p700); border-radius: 4px; padding: 2px 5px; margin-left: 4px; vertical-align: middle; white-space: nowrap; }
+    .wha-badge { font-size: .6rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: var(--wha-nav-gold); color: #fff; border-radius: 4px; padding: 2px 5px; margin-left: 4px; vertical-align: middle; white-space: nowrap; }
     .wha-badge--light { background: rgba(255,255,255,.18); color: #fff; }
 
     /* Right controls */

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LangContext.jsx';
 import {
@@ -15,9 +15,18 @@ function ImgPlaceholder({ label, className }) {
 /* ── Aval dropdown ─────────────────────────────────────── */
 function AvalDropdown({ t }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    function onDoc(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('mousedown', onDoc);
+    return () => document.removeEventListener('mousedown', onDoc);
+  }, []);
 
   return (
-    <div className="aval-drop" onClick={() => setOpen(o => !o)}>
+    <div className="aval-drop" ref={ref} onClick={() => setOpen(o => !o)}>
       <button className="btn btn-hero-aval">
         <Shield size={17} /> {t('hero.cta.secondary')} <ChevDown size={14} />
       </button>
