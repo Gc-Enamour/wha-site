@@ -71,8 +71,6 @@
 /* Aval dropdown */
 .aval-drop { position: relative; }
 .aval-drop .btn-hero-aval { display: inline-flex; align-items: center; gap: 8px; }
-.aval-drop .rot { transform: rotate(180deg); transition: transform .2s; }
-.aval-drop svg { transition: transform .2s; }
 .aval-drop-panel {
   position: absolute;
   top: calc(100% + 10px);
@@ -83,7 +81,20 @@
   border-radius: 14px;
   box-shadow: var(--wha-shadow-lg);
   overflow: hidden;
-  z-index: 100;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s;
+}
+@media (hover: hover) {
+  .aval-drop:hover .aval-drop-panel {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.aval-drop-panel.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 .aval-drop-opt {
   display: block;

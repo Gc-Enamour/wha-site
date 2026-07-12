@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LangContext.jsx';
 import {
@@ -15,37 +15,22 @@ function ImgPlaceholder({ label, className }) {
 /* ── Aval dropdown ─────────────────────────────────────── */
 function AvalDropdown({ t }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    function onDoc(e) { if (ref.current && !ref.current.contains(e.target)) setOpen(false); }
-    document.addEventListener('click', onDoc);
-    return () => document.removeEventListener('click', onDoc);
-  }, []);
-
-  useEffect(() => {
-    function onScroll() { setOpen(false); }
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
-    <div className="aval-drop" ref={ref}>
-      <button className="btn btn-hero-aval" onClick={() => setOpen(o => !o)}>
-        <Shield size={17} /> {t('hero.cta.secondary')} <ChevDown size={14} className={open ? 'rot' : ''} />
+    <div className="aval-drop" onClick={() => setOpen(o => !o)}>
+      <button className="btn btn-hero-aval">
+        <Shield size={17} /> {t('hero.cta.secondary')} <ChevDown size={14} />
       </button>
-      {open && (
-        <div className="aval-drop-panel">
-          <a href={t('link.aval')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
-            <div className="aval-drop-title">Aval Terapeuta WHA</div>
-            <div className="aval-drop-desc">Directorio oficial · Academia WHA incluida</div>
-          </a>
-          <a href={t('link.maestro.wa')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
-            <div className="aval-drop-title">Aval Maestro/Centro Holístico WHA <span className="beta-tag">BETA</span></div>
-            <div className="aval-drop-desc">Directorio oficial · Emite certificados WHA · Academia incluida</div>
-          </a>
-        </div>
-      )}
+      <div className={`aval-drop-panel${open ? ' open' : ''}`}>
+        <a href={t('link.aval')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
+          <div className="aval-drop-title">Aval Terapeuta WHA</div>
+          <div className="aval-drop-desc">Directorio oficial · Academia WHA incluida</div>
+        </a>
+        <a href={t('link.maestro.wa')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
+          <div className="aval-drop-title">Aval Maestro/Centro Holístico WHA <span className="beta-tag">BETA</span></div>
+          <div className="aval-drop-desc">Directorio oficial · Emite certificados WHA · Academia incluida</div>
+        </a>
+      </div>
     </div>
   );
 }
