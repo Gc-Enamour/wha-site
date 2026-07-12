@@ -69,7 +69,15 @@
 
 /* Aval dropdown */
 .aval-drop { position: relative; }
-.aval-drop .btn-hero-aval { display: inline-flex; align-items: center; gap: 8px; }
+.aval-drop .btn-hero-aval {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  appearance: none;
+  padding: 14px 26px;
+  font-size: .88rem;
+  cursor: pointer;
+}
 .aval-drop-panel {
   position: absolute;
   top: 100%;
