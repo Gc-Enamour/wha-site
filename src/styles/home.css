@@ -89,8 +89,10 @@
   position: absolute;
   top: 100%;
   left: 0;
+  right: auto;
   padding-top: 10px;
   min-width: 300px;
+  max-width: calc(100vw - 32px);
   background: #F0FAF5;
   border: 1px solid #CFE9DC;
   border-radius: 14px;
@@ -113,6 +115,7 @@
   pointer-events: auto;
 }
 .aval-drop-panel.flip-up { top: auto; bottom: calc(100% + 10px); }
+.aval-drop-panel.flip-right { left: auto; right: 0; }
 .aval-drop-opt {
   display: block;
   padding: 14px 18px;
@@ -134,11 +137,12 @@
 .aval-drop-desc  { font-size: .8rem; color: #6E6173; margin-top: 4px; line-height: 1.4; }
 @media (max-width: 560px) {
   .aval-drop-panel {
-    left: 0;
+    left: 50%;
     right: auto;
-    transform: none;
-    margin-left: 16px;
-    min-width: calc(100vw - 32px);
+    transform: translateX(-50%);
+    margin-left: 0;
+    min-width: 280px;
+    max-width: calc(100vw - 32px);
   }
 }
 

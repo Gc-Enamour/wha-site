@@ -16,6 +16,7 @@ function ImgPlaceholder({ label, className }) {
 function AvalDropdown({ t }) {
   const [open, setOpen] = useState(false);
   const [flipUp, setFlipUp] = useState(false);
+  const [flipRight, setFlipRight] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -32,6 +33,7 @@ function AvalDropdown({ t }) {
       if (!ref.current) return;
       const rect = ref.current.getBoundingClientRect();
       setFlipUp(window.innerHeight - rect.bottom < 160);
+      setFlipRight(rect.left + 300 > window.innerWidth);
     }
     recalc();
     window.addEventListener('scroll', recalc);
@@ -46,6 +48,7 @@ function AvalDropdown({ t }) {
     e.stopPropagation();
     const rect = e.currentTarget.getBoundingClientRect();
     setFlipUp(window.innerHeight - rect.bottom < 160);
+    setFlipRight(rect.left + 300 > window.innerWidth);
     setOpen(o => !o);
   }
 
@@ -54,7 +57,7 @@ function AvalDropdown({ t }) {
       <button className="btn btn-hero-aval" onClick={handleToggle}>
         <Shield size={17} /> {t('hero.cta.secondary')} <ChevDown size={14} />
       </button>
-      <div className={`aval-drop-panel${open ? ' open' : ''}${flipUp ? ' flip-up' : ''}`}
+      <div className={`aval-drop-panel${open ? ' open' : ''}${flipUp ? ' flip-up' : ''}${flipRight ? ' flip-right' : ''}`}
            onClick={(e) => e.stopPropagation()}>
         <a href={t('link.aval')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
           <div className="aval-drop-title">Aval Terapeuta WHA</div>
