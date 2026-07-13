@@ -228,7 +228,7 @@ function Maestro({ t }) {
             </div>
           </div>
           <div className="maestro-visual">
-            <aside className="maestro-price">
+            <aside className="offer-card maestro-price">
               <span className="beta-solid">{t('maestro.badge')}</span>
               <div className="price-label">{t('maestro.price.label')}</div>
               <div className="price"><b>{t('maestro.price.value')}</b><span>{t('maestro.price.per')}</span></div>

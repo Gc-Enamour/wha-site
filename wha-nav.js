@@ -133,7 +133,7 @@
     .wha-ftr-aval-drop { position: relative; }
     .wha-ftr-aval-btn { background: none; border: none; cursor: pointer; color: rgba(255,255,255,.85); font-size: .9rem; font-family: var(--wha-nav-font); padding: 0; display: flex; align-items: center; gap: 5px; line-height: 1.4; }
     .wha-ftr-aval-btn:hover { color: #fff; }
-    .wha-ftr-aval-panel { display: none; position: absolute; bottom: calc(100% + 8px); left: 0; min-width: 260px; background: #4A1250; border: 1px solid rgba(255,255,255,.15); border-radius: 10px; overflow: hidden; z-index: 100; }
+    .wha-ftr-aval-panel { display: none; position: absolute; bottom: calc(100% + 8px); right: 0; left: auto; min-width: 260px; max-width: calc(100vw - 32px); background: #4A1250; border: 1px solid rgba(255,255,255,.15); border-radius: 10px; overflow: hidden; z-index: 100; }
     .wha-ftr-aval-panel.wha-open { display: block; }
     [data-theme="dark"] .wha-ftr-aval-panel { background: #3D0F43; }
     .wha-ftr-aval-opt { display: block; padding: 11px 14px; color: #fff; font-size: .88rem; font-family: var(--wha-nav-font); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.1); transition: background .12s; }

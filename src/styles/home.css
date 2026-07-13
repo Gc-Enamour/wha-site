@@ -355,7 +355,7 @@
 .maestro-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .maestro-note { color: var(--wha-faint); font-size: .84rem; max-width: 300px; line-height: 1.45; }
 .maestro-visual { display: flex; flex-direction: column; align-items: stretch; gap: 16px; }
-.maestro-price { position: relative; text-align: center; }
+.maestro-price { position: relative; text-align: center; border-color: var(--wha-border-strong); }
 .maestro-price .beta-solid { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); }
 .maestro-price .price-label { margin-top: 6px; }
 
