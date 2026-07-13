@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LangContext.jsx';
 import {
   Search, Shield, Book, Award, Users, Cert, Star,
-  Sparkle, Layers, Check, ChevRight, Quote, ChevDown,
+  Sparkle, Layers, Check, ChevRight, Quote,
 } from '../components/icons/index.jsx';
+import AvalDropdown from '../components/AvalDropdown.jsx';
 import '../styles/home.css';
 
 /* Placeholder para imágenes aún no disponibles */
@@ -12,65 +13,6 @@ function ImgPlaceholder({ label, className }) {
   return <div className={'img-ph ' + (className || '')} aria-hidden="true">{label}</div>;
 }
 
-/* ── Aval dropdown ─────────────────────────────────────── */
-function AvalDropdown({ t }) {
-  const [open, setOpen] = useState(false);
-  const [flipUp, setFlipUp] = useState(false);
-  const [flipRight, setFlipRight] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    function onDoc(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-    }
-    document.addEventListener('mousedown', onDoc);
-    return () => document.removeEventListener('mousedown', onDoc);
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    function recalc() {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
-      setFlipUp(window.innerHeight - rect.bottom < 160);
-      setFlipRight(rect.left + 300 > window.innerWidth);
-    }
-    recalc();
-    window.addEventListener('scroll', recalc);
-    window.addEventListener('resize', recalc);
-    return () => {
-      window.removeEventListener('scroll', recalc);
-      window.removeEventListener('resize', recalc);
-    };
-  }, [open]);
-
-  function handleToggle(e) {
-    e.stopPropagation();
-    const rect = e.currentTarget.getBoundingClientRect();
-    setFlipUp(window.innerHeight - rect.bottom < 160);
-    setFlipRight(rect.left + 300 > window.innerWidth);
-    setOpen(o => !o);
-  }
-
-  return (
-    <div className="aval-drop" ref={ref}>
-      <button className="btn btn-hero-aval" onClick={handleToggle}>
-        <Shield size={17} /> {t('hero.cta.secondary')} <ChevDown size={14} />
-      </button>
-      <div className={`aval-drop-panel${open ? ' open' : ''}${flipUp ? ' flip-up' : ''}${flipRight ? ' flip-right' : ''}`}
-           onClick={(e) => e.stopPropagation()}>
-        <a href={t('link.aval')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
-          <div className="aval-drop-title">Aval Terapeuta WHA</div>
-          <div className="aval-drop-desc">Directorio oficial · Academia WHA incluida</div>
-        </a>
-        <a href={t('link.maestro.wa')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
-          <div className="aval-drop-title">Aval Maestro/Centro Holístico WHA <span className="beta-tag">BETA</span></div>
-          <div className="aval-drop-desc">Directorio oficial · Emite certificados WHA · Academia incluida</div>
-        </a>
-      </div>
-    </div>
-  );
-}
 
 /* ── Hero ──────────────────────────────────────────────── */
 function Hero({ t }) {
@@ -116,8 +58,8 @@ function Paths({ t }) {
   const cards = [
     { k: 'aprender', Icon: Book,   color: 'var(--wha-info)',    urlKey: 'link.formaciones' },
     { k: 'validar',  Icon: Shield, color: 'var(--wha-success)', urlKey: 'link.aval'        },
-    { k: 't200',     Icon: Award,  color: 'var(--done-fg)',     urlKey: 'link.t200'        },
     { k: 'maestro',  Icon: Users,  color: 'var(--wha-gold)',    urlKey: 'link.maestro.wa', beta: true },
+    { k: 't200',     Icon: Award,  color: 'var(--done-fg)',     urlKey: 'link.t200'        },
   ];
   return (
     <section className="home-section" id="formaciones">
@@ -234,19 +176,7 @@ function T200({ t }) {
   const feats = ['t200.f1', 't200.f2', 't200.f3', 't200.f4'];
   return (
     <section className="home-section sec-accent" id="t200">
-      <div className="shell offer offer-rev">
-        <aside className="offer-card gold">
-          <span className="beta-solid t200-beca">{t('t200.beca')}</span>
-          <div className="cert-badge">
-            <div className="cert-label">{t('t200.cert.label')}</div>
-            <div className="cert-name"><Award size={20} /> {t('t200.cert.name')}</div>
-            <div className="cert-level">{t('t200.cert.level')}</div>
-          </div>
-          <div className="price-label">{t('t200.price.label')}</div>
-          <div className="price"><b>{t('t200.price.value')}</b><span>{t('t200.price.per')}</span></div>
-          <div className="price-note">{t('t200.price.note')}</div>
-          <a href={t('link.t200')} target="_blank" rel="noopener noreferrer" className="btn btn-primary full"><Award size={17} /> {t('t200.cta')}</a>
-        </aside>
+      <div className="shell offer">
         <div className="offer-copy">
           <div className="eyebrow">{t('t200.eyebrow')}</div>
           <h2>{t('t200.title')}</h2>
@@ -264,6 +194,18 @@ function T200({ t }) {
             ))}
           </ul>
         </div>
+        <aside className="offer-card gold">
+          <span className="beta-solid t200-beca">{t('t200.beca')}</span>
+          <div className="cert-badge">
+            <div className="cert-label">{t('t200.cert.label')}</div>
+            <div className="cert-name"><Award size={20} /> {t('t200.cert.name')}</div>
+            <div className="cert-level">{t('t200.cert.level')}</div>
+          </div>
+          <div className="price-label">{t('t200.price.label')}</div>
+          <div className="price"><b>{t('t200.price.value')}</b><span>{t('t200.price.per')}</span></div>
+          <div className="price-note">{t('t200.price.note')}</div>
+          <a href={t('link.t200')} target="_blank" rel="noopener noreferrer" className="btn btn-primary full"><Award size={17} /> {t('t200.cta')}</a>
+        </aside>
       </div>
     </section>
   );
@@ -376,8 +318,8 @@ export default function Home() {
       <Paths t={t} />
       <Directory t={t} />
       <Aval t={t} />
-      <T200 t={t} />
       <Maestro t={t} />
+      <T200 t={t} />
       <Testimonials t={t} />
       <Formaciones t={t} />
     </>

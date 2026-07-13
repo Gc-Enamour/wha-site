@@ -130,6 +130,14 @@
     .wha-ftr-aviso { margin-top: 20px; padding-top: 18px; font-size: .74rem; color: rgba(255,255,255,.45); line-height: 1.6; }
     .wha-ftr-aviso p { margin: 0; }
     .wha-ftr-aviso-title { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .68rem; margin-bottom: 6px; color: rgba(255,255,255,.55); }
+    .wha-ftr-aval-drop { position: relative; }
+    .wha-ftr-aval-btn { background: none; border: none; cursor: pointer; color: rgba(255,255,255,.85); font-size: .9rem; font-family: var(--wha-nav-font); padding: 0; display: flex; align-items: center; gap: 5px; line-height: 1.4; }
+    .wha-ftr-aval-btn:hover { color: #fff; }
+    .wha-ftr-aval-panel { display: none; position: absolute; bottom: calc(100% + 8px); left: 0; min-width: 260px; background: var(--wha-nav-hbg); border: 1px solid rgba(255,255,255,.15); border-radius: 10px; overflow: hidden; z-index: 100; }
+    .wha-ftr-aval-panel.wha-open { display: block; }
+    .wha-ftr-aval-opt { display: block; padding: 11px 14px; color: rgba(255,255,255,.85); font-size: .88rem; font-family: var(--wha-nav-font); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.1); transition: background .12s; }
+    .wha-ftr-aval-opt:last-child { border-bottom: 0; }
+    .wha-ftr-aval-opt:hover { background: rgba(255,255,255,.08); color: #fff; }
 
     /* ── Responsive ── */
     @media (max-width: 960px) {
@@ -414,7 +422,6 @@
                   <li><a href="https://worldholisticalliance.org/etica">Código de Ética</a></li>
                   <li><a href="https://directorio.worldholisticalliance.org/">Buscar perfiles</a></li>
                   <li><a href="https://directorio.worldholisticalliance.org/#como-leer">Cómo leer los perfiles</a></li>
-                  <li><a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer">Quiero mi aval WHA</a></li>
                 </ul>
               </div>
               <div>
@@ -424,6 +431,16 @@
                   <li><a href="https://formaciones.worldholisticalliance.org">Formaciones</a></li>
                   <li><a href="https://worldholisticalliance.org/blog-2">Blog</a></li>
                   <li><a href="https://directorio.worldholisticalliance.org/acceso">Acceso formadores</a></li>
+                  <li>
+                    <div class="wha-ftr-aval-drop">
+                      <button class="wha-ftr-aval-btn" data-wha-ftr-aval>Aval WHA ▾</button>
+                      <div class="wha-ftr-aval-panel" data-wha-ftr-aval-panel>
+                        <a href="https://worldholisticalliance.com/avalwha/" target="_blank" rel="noopener noreferrer" class="wha-ftr-aval-opt">Aval Terapeuta WHA</a>
+                        <a href="https://wa.me/5491124014443?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Aval%20Maestro%2FCentro%20Hol%C3%ADstico%20WHA" target="_blank" rel="noopener noreferrer" class="wha-ftr-aval-opt">Aval Maestro / Centro Holístico</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li><a href="https://worldholisticalliance.com/terapeutaintegralwhat200/" target="_blank" rel="noopener noreferrer">Ser Terapeuta Integral WHA</a></li>
                   <li><a href="https://wa.me/5491124014443?text=Hola!%20Necesito%20entrar%20en%20contacto." target="_blank" rel="noopener noreferrer">Contacto WhatsApp</a></li>
                 </ul>
               </div>
@@ -450,6 +467,22 @@
           </div>
         </footer>
       `;
+
+      // Footer aval dropdown
+      const avalBtn   = this.querySelector('[data-wha-ftr-aval]');
+      const avalPanel = this.querySelector('[data-wha-ftr-aval-panel]');
+      if (avalBtn && avalPanel) {
+        avalBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          avalPanel.classList.toggle('wha-open');
+        });
+        this._ftrOutside = () => avalPanel.classList.remove('wha-open');
+        document.addEventListener('click', this._ftrOutside);
+      }
+    }
+
+    disconnectedCallback() {
+      if (this._ftrOutside) document.removeEventListener('click', this._ftrOutside);
     }
   }
 
