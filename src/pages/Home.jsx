@@ -175,7 +175,7 @@ function Aval({ t }) {
 function T200({ t }) {
   const feats = ['t200.f1', 't200.f2', 't200.f3', 't200.f4'];
   return (
-    <section className="home-section sec-accent" id="t200">
+    <section className="home-section" id="t200">
       <div className="shell offer">
         <div className="offer-copy">
           <div className="eyebrow">{t('t200.eyebrow')}</div>
@@ -214,7 +214,7 @@ function T200({ t }) {
 /* ── Aval Maestro / Centro ─────────────────────────────── */
 function Maestro({ t }) {
   return (
-    <section className="home-section" id="maestro">
+    <section className="home-section sec-alt" id="maestro">
       <div className="shell">
         <div className="maestro-band">
           <div className="maestro-body">
