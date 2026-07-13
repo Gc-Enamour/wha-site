@@ -348,8 +348,6 @@
 /* Maestro/Centro BETA */
 .maestro-band {
   display: grid; grid-template-columns: 1.5fr .9fr; gap: 36px; align-items: center;
-  background: linear-gradient(120deg, var(--peri-050), var(--wha-surface));
-  border: 1px solid var(--peri-100); border-radius: var(--wha-r-lg); padding: 40px;
 }
 .maestro-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .maestro-body h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 10px 0 0; }
