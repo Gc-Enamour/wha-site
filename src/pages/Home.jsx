@@ -15,6 +15,7 @@ function ImgPlaceholder({ label, className }) {
 /* ── Aval dropdown ─────────────────────────────────────── */
 function AvalDropdown({ t }) {
   const [open, setOpen] = useState(false);
+  const [flipUp, setFlipUp] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -25,12 +26,36 @@ function AvalDropdown({ t }) {
     return () => document.removeEventListener('mousedown', onDoc);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    function recalc() {
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      setFlipUp(window.innerHeight - rect.bottom < 160);
+    }
+    recalc();
+    window.addEventListener('scroll', recalc);
+    window.addEventListener('resize', recalc);
+    return () => {
+      window.removeEventListener('scroll', recalc);
+      window.removeEventListener('resize', recalc);
+    };
+  }, [open]);
+
+  function handleToggle(e) {
+    e.stopPropagation();
+    const rect = e.currentTarget.getBoundingClientRect();
+    setFlipUp(window.innerHeight - rect.bottom < 160);
+    setOpen(o => !o);
+  }
+
   return (
-    <div className="aval-drop" ref={ref} onClick={() => setOpen(o => !o)}>
-      <button className="btn btn-hero-aval">
+    <div className="aval-drop" ref={ref}>
+      <button className="btn btn-hero-aval" onClick={handleToggle}>
         <Shield size={17} /> {t('hero.cta.secondary')} <ChevDown size={14} />
       </button>
-      <div className={`aval-drop-panel${open ? ' open' : ''}`}>
+      <div className={`aval-drop-panel${open ? ' open' : ''}${flipUp ? ' flip-up' : ''}`}
+           onClick={(e) => e.stopPropagation()}>
         <a href={t('link.aval')} target="_blank" rel="noopener noreferrer" className="aval-drop-opt">
           <div className="aval-drop-title">Aval Terapeuta WHA</div>
           <div className="aval-drop-desc">Directorio oficial · Academia WHA incluida</div>

@@ -112,6 +112,7 @@
   opacity: 1;
   pointer-events: auto;
 }
+.aval-drop-panel.flip-up { top: auto; bottom: calc(100% + 10px); }
 .aval-drop-opt {
   display: block;
   padding: 14px 18px;
