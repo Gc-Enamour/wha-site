@@ -231,6 +231,7 @@ function Maestro({ t }) {
             <aside className="offer-card maestro-price">
               <span className="beta-solid">{t('maestro.badge')}</span>
               <div className="price-label">{t('maestro.price.label')}</div>
+              <div className="price-old">{t('maestro.price.old')}</div>
               <div className="price"><b>{t('maestro.price.value')}</b><span>{t('maestro.price.per')}</span></div>
               <div className="price-note">{t('maestro.price.note')}</div>
               <a href={t('link.maestro.wa')} target="_blank" rel="noopener noreferrer" className="btn btn-primary full"><Cert size={17} /> {t('maestro.cta')}</a>

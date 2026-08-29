@@ -120,6 +120,7 @@
   display: block;
   padding: 14px 18px;
   color: #43103F;
+  text-align: left;
   text-decoration: none;
   border-bottom: none;
   border-radius: 10px;
@@ -358,6 +359,14 @@
 .maestro-price { position: relative; text-align: center; border-color: var(--wha-border-strong); }
 .maestro-price .beta-solid { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); }
 .maestro-price .price-label { margin-top: 6px; }
+.price-old {
+  display: block;
+  text-decoration: line-through;
+  font-size: 1.275rem;
+  color: var(--wha-muted);
+  font-weight: bold;
+  margin-bottom: 2px;
+}
 
 /* Testimonios */
 .tst-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }

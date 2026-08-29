@@ -83,10 +83,11 @@ const es = {
   "maestro.lead":           "Para escuelas, maestros y centros que forman a otros. Emite certificados digitales con aval WHA y suma tu institución al registro oficial.",
   "maestro.cta":            "Quiero conocer el programa",
   "maestro.price.label":    "Membresía mensual",
-  "maestro.price.value":    "USD 17,97",
+  "maestro.price.old":      "USD 17,97",
+  "maestro.price.value":    "USD 8,97",
   "maestro.price.per":      "/ mes",
   "maestro.price.note":     "Cancela cuando quieras",
-  "maestro.note":           "Estamos sumando las primeras instituciones. Escríbenos para participar de la etapa beta.",
+  "maestro.note":           "Súmate al grupo fundador y asegura este valor antes de que cambie.",
 
   "test.eyebrow": "Testimonios",
   "test.title":   "Voces de la comunidad WHA",
