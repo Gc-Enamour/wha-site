@@ -13,7 +13,7 @@ const es = {
   "hero.trust":         "Profesionales con formación verificada y aval activo",
 
   "about.eyebrow": "Quiénes somos",
-  "about.text":    "WHA es una asociación internacional que agrupa a profesionales del mundo holístico. Impulsamos formación de alta calidad y práctica segura, con un fin común: ayudar a otros en su bienestar.",
+  "about.text":    "WHA es una organización internacional que agrupa a profesionales del mundo holístico. Impulsamos formación de alta calidad y práctica segura, con un fin común: ayudar a otros en su bienestar.",
 
   "paths.eyebrow": "Por dónde empezar",
   "paths.title":   "¿Cuál es tu camino?",
@@ -121,7 +121,7 @@ const es = {
   "link.directorio":  "https://directorio.worldholisticalliance.org/",
   "link.formaciones": "https://formaciones.worldholisticalliance.org/?idioma=es",
   "link.aval":        "https://worldholisticalliance.com/avalwha/",
-  "link.t200":        "https://worldholisticalliance.com/terapeutaintegralwhat200/",
+  "link.t200":        "https://worldholisticalliance.org/terapeutaintegralwhat200/",
   "link.maestro.wa":  "https://wa.me/5491124014443?text=Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Aval%20Maestro%2FCentro%20Hol%C3%ADstico%20WHA",
 
   "footer.tagline":          "Asociación internacional de profesionales del mundo holístico.",
